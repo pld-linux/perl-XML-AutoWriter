@@ -1,0 +1,49 @@
+#
+# Conditional build:
+%bcond_without	tests	# do perform "make test"
+#
+%include	/usr/lib/rpm/macros.perl
+%define	pdir	XML
+%define pnam	AutoWriter
+Summary:	XML::AutoWriter - DOCTYPE based XML output
+Name:		perl-XML-AutoWriter
+Version:	0.38
+Release:	1
+# same as perl
+License:	GPL v1+ or Artistic
+Group:		Development/Languages/Perl
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	86e108d6bd2a35ddd0d5c6e46e88c008
+BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+DOCTYPE based XML output.
+
+%prep
+%setup -q -n %{pdir}-%{pnam}-%{version}
+
+%build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
+
+%{?with_tests:%{__make} test}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc CHANGES
+%{perl_vendorlib}/XML/*.pm
+%{perl_vendorlib}/XML/Doctype
+%{_mandir}/man3/*
