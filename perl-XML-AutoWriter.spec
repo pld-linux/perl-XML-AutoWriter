@@ -6,6 +6,7 @@
 %define	pdir	XML
 %define pnam	AutoWriter
 Summary:	XML::AutoWriter - DOCTYPE based XML output
+Summary(pl):	XML::AutoWriter - oparte o DOCTYPE wyj¶cie XML
 Name:		perl-XML-AutoWriter
 Version:	0.38
 Release:	1
@@ -21,6 +22,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 DOCTYPE based XML output.
+
+%description -l pl
+Oparte o DOCTYPE wyj¶cie XML.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
