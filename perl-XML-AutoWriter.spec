@@ -1,10 +1,10 @@
 #
 # Conditional build:
 %bcond_without	tests	# do perform "make test"
-#
-%include	/usr/lib/rpm/macros.perl
+
 %define		pdir	XML
 %define		pnam	AutoWriter
+%include	/usr/lib/rpm/macros.perl
 Summary:	XML::AutoWriter - DOCTYPE based XML output
 Summary(pl.UTF-8):	XML::AutoWriter - oparte o DOCTYPE wyjście XML
 Name:		perl-XML-AutoWriter
@@ -16,6 +16,7 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b18624c8168e0a38daf39c7c6919ff24
+URL:		http://search.cpan.org/dist/XML-AutoWriter/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
