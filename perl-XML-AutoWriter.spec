@@ -4,7 +4,6 @@
 
 %define		pdir	XML
 %define		pnam	AutoWriter
-%include	/usr/lib/rpm/macros.perl
 Summary:	XML::AutoWriter - DOCTYPE based XML output
 Summary(pl.UTF-8):	XML::AutoWriter - oparte o DOCTYPE wyjście XML
 Name:		perl-XML-AutoWriter
